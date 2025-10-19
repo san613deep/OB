@@ -213,27 +213,27 @@
         correct: 3
     },
     {
-        question: "Learning involves change in behavior",
+        question: "According to psychology, personality has a strong influence on human behavior",
         options: ["True", "False"],
         correct: 0
     },
     {
-        question: "According to the operant conditioning theory, punishment is a form of negative reinforcement",
+        question: "Psychoanalytic theory believes in the role of learning in the development of personality",
         options: ["True", "False"],
         correct: 1
     },
     {
-        question: "Cognitive maps are the internal representation of the external world",
+        question: "Employees with high self-esteem are very dominating over others",
+        options: ["True", "False"],
+        correct: 1
+    },
+    {
+        question: "Personality styles can also be called as personality types",
         options: ["True", "False"],
         correct: 0
     },
     {
-        question: "Values are fewer in number than attitudes",
-        options: ["True", "False"],
-        correct: 0
-    },
-    {
-        question: "Supportive colleagues can contribute to job satisfaction",
+        question: "Machiavellianistic individuals willingly manipulate others for their own benefit",
         options: ["True", "False"],
         correct: 0
     }
@@ -960,4 +960,5 @@
     }
 ]
             }
+
         };
