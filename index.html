@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Week Selection Screen */
+        .week-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .week-btn {
+            padding: 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .week-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Quiz Screen */
+        .quiz-container {
+            display: none;
+        }
+
+        .question-info {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .question-text {
+            background: #f5f5f5;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .option label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #eee;
+        }
+
+        /* Results Screen */
+        .results-container {
+            display: none;
+        }
+
+        .score-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .score-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .score-number {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .result-item {
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .result-item.correct {
+            border-left-color: #4caf50;
+            background: #f1f8f4;
+        }
+
+        .result-item.wrong {
+            border-left-color: #f44336;
+            background: #fef1f0;
+        }
+
+        .result-question {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .result-answer {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .result-answer.user {
+            color: #f44336;
+        }
+
+        .result-answer.correct {
+            color: #4caf50;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .progress-bar {
+            background: #eee;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #667eea;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Week Selection Screen -->
+        <div id="weekSelection">
+            <h1>📚 Quiz Master</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Select a week to start the quiz</p>
+            <div class="week-selection" id="weekButtons"></div>
+            <button class="btn btn-primary" onclick="startAllQuestions()" style="width: 100%; margin-top: 20px;">Take All Questions</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizContainer" class="quiz-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 id="weekTitle">Week 1</h1>
+                <button class="btn btn-secondary" onclick="goBackToWeeks()">Back</button>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="question-info">
+                <span id="questionCounter">Question 1 of 5</span>
+            </div>
+
+            <div class="question-text" id="questionText"></div>
+
+            <div class="options" id="optionsContainer"></div>
+
+            <div class="quiz-buttons">
+                <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" style="display: none;">← Previous</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Next →</button>
+                <button class="btn btn-primary" onclick="submitQuiz()" id="submitBtn" style="display: none;">Submit Quiz</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsContainer" class="results-container">
+            <h1>📊 Your Results</h1>
+
+            <div class="score-box">
+                <div class="score-text">Your Score</div>
+                <div class="score-number"><span id="finalScore">0</span> / <span id="totalQuestions">0</span></div>
+                <div style="margin-top: 10px; font-size: 18px;" id="percentage">0%</div>
+            </div>
+
+            <div id="resultsDetails"></div>
+
+            <button class="btn btn-primary" onclick="goBackToWeeks()" style="width: 100%; margin-top: 20px;">← Back to Weeks</button>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        // Global state
+        let currentWeek = null;
+        let currentQuestion = 0;
+        let answers = [];
+        let quizQuestions = [];
+
+        // Initialize the app
+        function init() {
+            renderWeekSelection();
+        }
+
+        // Render week selection screen
+        function renderWeekSelection() {
+            const weekButtons = document.getElementById("weekButtons");
+            weekButtons.innerHTML = "";
+
+            Object.keys(quizData).forEach(weekKey => {
+                const week = quizData[weekKey];
+                const btn = document.createElement("button");
+                btn.className = "week-btn";
+                btn.textContent = week.title;
+                btn.onclick = () => startQuiz(weekKey);
+                weekButtons.appendChild(btn);
+            });
+
+            // Show week selection, hide others
+            document.getElementById("weekSelection").style.display = "block";
+            document.getElementById("quizContainer").style.display = "none";
+            document.getElementById("resultsContainer").style.display = "none";
+        }
+
+        // Helper function to shuffle array
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        // Start the quiz for a selected week
+        function startQuiz(weekKey) {
+            currentWeek = weekKey;
+            let originalQuestions = quizData[weekKey].questions;
+            
+            // Shuffle questions
+            quizQuestions = shuffleArray(originalQuestions).map(q => {
+                // Shuffle options and track the new position of correct answer
+                const optionsWithIndex = q.options.map((opt, idx) => ({ opt, originalIdx: idx }));
+                const shuffledOptions = shuffleArray(optionsWithIndex);
+                const newCorrectIndex = shuffledOptions.findIndex(item => item.originalIdx === q.correct);
+                
+                return {
+                    question: q.question,
+                    options: shuffledOptions.map(item => item.opt),
+                    correct: newCorrectIndex
+                };
+            });
+            
+            answers = new Array(quizQuestions.length).fill(null);
+            currentQuestion = 0;
+
+            // Show quiz screen
+            document.getElementById("weekSelection").style.display = "none";
+            document.getElementById("quizContainer").style.display = "block";
+            document.getElementById("resultsContainer").style.display = "none";
+
+            // Update title
+            document.getElementById("weekTitle").textContent = quizData[weekKey].title;
+
+            // Load first question
+            loadQuestion();
+        }
+
+        // Load and display a question
+        function loadQuestion() {
+            const question = quizQuestions[currentQuestion];
+
+            // Update question counter
+            document.getElementById("questionCounter").textContent = 
+                `Question ${currentQuestion + 1} of ${quizQuestions.length}`;
+
+            // Update progress bar
+            const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
+            document.getElementById("progressFill").style.width = progress + "%";
+
+            // Load question text
+            document.getElementById("questionText").textContent = question.question;
+
+            // Load options
+            const optionsContainer = document.getElementById("optionsContainer");
+            optionsContainer.innerHTML = "";
+
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement("div");
+                optionDiv.className = "option";
+
+                const input = document.createElement("input");
+                input.type = "radio";
+                input.name = "option";
+                input.value = index;
+                input.checked = answers[currentQuestion] === index;
+
+                const label = document.createElement("label");
+                label.appendChild(input);
+                label.appendChild(document.createTextNode(option));
+
+                optionDiv.appendChild(label);
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            // Update button visibility
+            document.getElementById("prevBtn").style.display = currentQuestion === 0 ? "none" : "block";
+            document.getElementById("nextBtn").style.display = 
+                currentQuestion === quizQuestions.length - 1 ? "none" : "block";
+            document.getElementById("submitBtn").style.display = 
+                currentQuestion === quizQuestions.length - 1 ? "block" : "none";
+        }
+
+        // Save current answer and move to next question
+        function nextQuestion() {
+            const selected = document.querySelector('input[name="option"]:checked');
+            if (selected === null) {
+                alert("Please select an option!");
+                return;
+            }
+
+            answers[currentQuestion] = parseInt(selected.value);
+
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            }
+        }
+
+        // Move to previous question
+        function previousQuestion() {
+            const selected = document.querySelector('input[name="option"]:checked');
+            if (selected !== null) {
+                answers[currentQuestion] = parseInt(selected.value);
+            }
+
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        // Save last answer and submit quiz
+        function submitQuiz() {
+            const selected = document.querySelector('input[name="option"]:checked');
+            if (selected === null) {
+                alert("Please select an option!");
+                return;
+            }
+
+            answers[currentQuestion] = parseInt(selected.value);
+
+            // Calculate score
+            let score = 0;
+            quizQuestions.forEach((q, index) => {
+                if (answers[index] === q.correct) {
+                    score++;
+                }
+            });
+
+            // Show results
+            showResults(score);
+        }
+
+        // Display results screen
+        function showResults(score) {
+            document.getElementById("weekSelection").style.display = "none";
+            document.getElementById("quizContainer").style.display = "none";
+            document.getElementById("resultsContainer").style.display = "block";
+
+            // Update score info
+            document.getElementById("finalScore").textContent = score;
+            document.getElementById("totalQuestions").textContent = quizQuestions.length;
+            const percentage = Math.round((score / quizQuestions.length) * 100);
+            document.getElementById("percentage").textContent = percentage + "%";
+
+            // Display each question with result
+            const resultsDetails = document.getElementById("resultsDetails");
+            resultsDetails.innerHTML = "";
+
+            quizQuestions.forEach((question, index) => {
+                const isCorrect = answers[index] === question.correct;
+                const resultItem = document.createElement("div");
+                resultItem.className = `result-item ${isCorrect ? "correct" : "wrong"}`;
+
+                let html = `<div class="result-question">Q${index + 1}: ${question.question}</div>`;
+                html += `<div class="result-answer user">Your Answer: ${question.options[answers[index]]}</div>`;
+                
+                if (!isCorrect) {
+                    html += `<div class="result-answer correct">Correct Answer: ${question.options[question.correct]}</div>`;
+                }
+
+                resultItem.innerHTML = html;
+                resultsDetails.appendChild(resultItem);
+            });
+        }
+
+        // Go back to week selection
+        function goBackToWeeks() {
+            renderWeekSelection();
+        }
+
+        // Start all questions from all weeks
+        function startAllQuestions() {
+            currentWeek = "all";
+            let allQuestions = [];
+            
+            // Combine all questions from all weeks
+            Object.keys(quizData).forEach(weekKey => {
+                allQuestions = allQuestions.concat(quizData[weekKey].questions);
+            });
+            
+            // Shuffle questions
+            quizQuestions = shuffleArray(allQuestions).map(q => {
+                // Shuffle options and track the new position of correct answer
+                const optionsWithIndex = q.options.map((opt, idx) => ({ opt, originalIdx: idx }));
+                const shuffledOptions = shuffleArray(optionsWithIndex);
+                const newCorrectIndex = shuffledOptions.findIndex(item => item.originalIdx === q.correct);
+                
+                return {
+                    question: q.question,
+                    options: shuffledOptions.map(item => item.opt),
+                    correct: newCorrectIndex
+                };
+            });
+            
+            answers = new Array(quizQuestions.length).fill(null);
+            currentQuestion = 0;
+
+            // Show quiz screen
+            document.getElementById("weekSelection").style.display = "none";
+            document.getElementById("quizContainer").style.display = "block";
+            document.getElementById("resultsContainer").style.display = "none";
+
+            // Update title
+            document.getElementById("weekTitle").textContent = "All Questions";
+
+            // Load first question
+            loadQuestion();
+        }
+
+        // Start the app
+        init();
+    </script>
+</body>
+</html>
