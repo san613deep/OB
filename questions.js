@@ -1,4 +1,59 @@
         const quizData = {
+            week0:{
+                title: "Week 0",
+                questions: [
+    {
+        question: "Which of the following are core aspects of Organizational Behaviour?",
+        options: ["Individual Behavioural Dynamics", "Interpersonal and Group Dynamics", "Organizational Dynamics", "All of the above"],
+        correct: 3
+    },
+    {
+        question: "Who are the potential beneficiaries of a course in Organizational Behaviour?",
+        options: ["HR Professionals", "Management Students", "Psychology students", "All of the above"],
+        correct: 3
+    },
+    {
+        question: "It is important to understand human behaviour in general to understand their behaviour in workplace.",
+        options: ["True", "False"],
+        correct: 0
+    },
+    {
+        question: "Perception, learning and personality are attributes of Individual Behavioural Dynamics.",
+        options: ["True", "False"],
+        correct: 0
+    },
+    {
+        question: "The process of giving meaning to sensory stimuli through organizing and interpreting is called:",
+        options: ["Sensation", "Perception", "Sublimation", "Organization"],
+        correct: 1
+    },
+    {
+        question: "Organizational structure is a part of Interpersonal and Group dynamics.",
+        options: ["True", "False"],
+        correct: 1
+    },
+    {
+        question: "People differ in their level of trustworthiness.",
+        options: ["True", "False"],
+        correct: 0
+    },
+    {
+        question: "Which field can be called as the mother of Organizational behaviour?",
+        options: ["Anthropology", "Economics", "Industrial Psychology", "Law"],
+        correct: 2
+    },
+    {
+        question: "Perception is highly objective.",
+        options: ["True", "False"],
+        correct: 1
+    },
+    {
+        question: "More output for less input or being able to provide optimal output for a given input is called:",
+        options: ["Effectiveness", "Productivity", "Efficiency", "Motivation"],
+        correct: 2
+    }
+]
+            },
             week1: {
                 title: "Week 1",
                 questions: [
@@ -962,3 +1017,4 @@
             }
 
         };
+
