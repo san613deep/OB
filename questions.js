@@ -122,7 +122,7 @@ const quizData = {
     },
 
     week2_solutions: {
-        title: "Week 2",
+        title: "Week 2 Solutions - Fuzzy Logic",
         questions: [
             {
                 question: "Which of the following is a disadvantage of using Open Right membership functions?",
@@ -438,6 +438,708 @@ const quizData = {
                     "By finding the sum of corresponding membership values",
                     "By finding the product of corresponding membership values",
                     "None of the above"
+                ],
+                correct: 0
+            }
+        ]
+    },
+
+    week5: {
+        title: "Week 5",
+        questions: [
+            {
+                question: "When multiplying two triangular fuzzy numbers, what is a possible outcome?",
+                options: [
+                    "Always a triangular fuzzy number",
+                    "A trapezoidal fuzzy number",
+                    "A crisp number",
+                    "Not guaranteed to maintain triangular shape"
+                ],
+                correct: 3
+            },
+            {
+                question: "Which property ensures that a fuzzy set's α-cuts are intervals?",
+                options: [
+                    "Normality",
+                    "Convexity",
+                    "Symmetry",
+                    "Completeness"
+                ],
+                correct: 1
+            },
+            {
+                question: "For continuous fuzzy numbers, division involves:",
+                options: [
+                    "Summing membership values",
+                    "Integrating over the domain",
+                    "Subtracting supports",
+                    "Multiplying α-cuts",
+                    "None of the above"
+                ],
+                correct: 4
+            },
+            {
+                question: "Dividing two fuzzy numbers might result in:",
+                options: [
+                    "A non-convex set",
+                    "A non-normal set",
+                    "Both (a) and (b)",
+                    "Always a valid fuzzy number"
+                ],
+                correct: 2
+            },
+            {
+                question: "Why is the universe of discourse critical in fuzzy arithmetic?",
+                options: [
+                    "To enforce binary logic compatibility",
+                    "To limit operations to meaningful ranges",
+                    "To speed up computations",
+                    "To ensure symmetry"
+                ],
+                correct: 1
+            },
+            {
+                question: "The complement of a fuzzy set A with membership μA(x) = 0.7 is:",
+                options: ["0", "1/0.7", "1 - 0.7", "0.72"],
+                correct: 2
+            },
+            {
+                question: "If Sugeno's complement parameter λ approaches infinity, what happens?",
+                options: [
+                    "Complement approaches 0",
+                    "Complement approaches 1",
+                    "Complement equals 1 - μ",
+                    "Complement becomes undefined"
+                ],
+                correct: 0
+            },
+            {
+                question: "In Yager's complement, if w = 2, the complement of μ = 0.5 is:",
+                options: [
+                    "√(1 - 0.5²)",
+                    "(1 - 0.5)^(1/2)",
+                    "1 - 0.5",
+                    "√0.5"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which T-norm produces the highest membership value for intersection between μA(x) = 0.6 and μB(x) = 0.8?",
+                options: [
+                    "Minimum",
+                    "Algebraic product",
+                    "Bounded product",
+                    "Drastic product"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which axiom is unique to T-norms but not S-norms?",
+                options: [
+                    "T(1,a) = a",
+                    "S(0,a) = a",
+                    "Associativity",
+                    "Non-decreasing"
+                ],
+                correct: 0
+            }
+        ]
+    },
+    
+    week6: {
+        title: "Week 6",
+        questions: [
+            {
+                question: "What is a parameterized T-norm also known as?",
+                options: [
+                    "Parameterized Z-norms",
+                    "Parameterized S-conorms",
+                    "Parameterized F-norms",
+                    "Parameterized G-conorms",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "In Dombi's class of T-norm, the range of the parameter lambda is:",
+                options: [
+                    "(0, 1)",
+                    "(1, infinity)",
+                    "(-1, 1)",
+                    "(0, infinity)",
+                    "None of the above"
+                ],
+                correct: 3
+            },
+            {
+                question: "What is the range of the parameter alpha in Dubois Prade's class of T-norm?",
+                options: [
+                    "[0, infinity]",
+                    "[-1, 1]",
+                    "[0, 1]",
+                    "[1, infinity]",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "In Yager's class of T-norm, how does increasing the parameter w affect the resultant fuzzy set obtained from the intersection of two fuzzy sets?",
+                options: [
+                    "It decreases the membership values",
+                    "It has no effect on the membership values",
+                    "It increases the membership values",
+                    "It randomizes the membership values",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "How does increasing the parameter alpha affect the resulting fuzzy set in Dubois-Prade's class of S-norm?",
+                options: [
+                    "Increases membership values",
+                    "No significant change in membership values",
+                    "Decreases membership values",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "What parameter determines the behaviour of the resulting fuzzy set in Dubois-Prade's class of S-norm?",
+                options: [
+                    "Alpha",
+                    "Lambda",
+                    "w",
+                    "Theta",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "What is the Cartesian product of two arbitrary crisp sets (A,B) with universe of discourse X and Y?",
+                options: [
+                    "A union B",
+                    "A intersection B",
+                    "A cross B",
+                    "A complement B",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "In a Cartesian product of two crisp sets A and B, how many ordered pairs are obtained if set A has 4 elements and set B has 3 elements?",
+                options: ["6", "7", "10", "12", "None of the above"],
+                correct: 3
+            },
+            {
+                question: "How is approachability between elements of different sets represented in fuzzy relations?",
+                options: [
+                    "Using Boolean logic",
+                    "Through crisp relations",
+                    "Using membership degrees",
+                    "By defining clear boundaries",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "For the intersection of two crisp relations, membership values are determined by:",
+                options: [
+                    "Taking the average",
+                    "Taking the minimum",
+                    "Applying Boolean logic",
+                    "Using the intersection of sets",
+                    "None of the above"
+                ],
+                correct: 1
+            }
+        ]
+    },
+    
+    week7: {
+        title: "Week 7",
+        questions: [
+            {
+                question: "What is the primary objective of projecting a fuzzy relationset R(A,B) onto its constituent sets A and B?",
+                options: [
+                    "To increase the dimensionality of the fuzzy set",
+                    "To decrease the dimensionality of the fuzzy set",
+                    "To add more elements to the fuzzy set",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "When projecting a fuzzy relation set R(A,B) onto a fuzzy set A, what happens to the universe of discourse?",
+                options: [
+                    "It remains unchanged",
+                    "It expands",
+                    "It becomes irrelevant",
+                    "None of the above"
+                ],
+                correct: 3
+            },
+            {
+                question: "In the projection of a fuzzy relation set R(A1, A2, A3, ..., An) onto sets A1, A2, ..., Ak, what does 'k' represent?",
+                options: [
+                    "The number of elements in the Cartesian product of the universe of discourse",
+                    "The number of dimensions retained in the projection",
+                    "The total number of generic variables in the original fuzzy relation set",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is the purpose of the cylindrical extension of a fuzzy set?",
+                options: [
+                    "To decrease the number of generic variables",
+                    "To decrease the dimensionality of the fuzzy set",
+                    "To increase the complexity of the fuzzy set",
+                    "Assign the original membership values across new dimension"
+                ],
+                correct: 3
+            },
+            {
+                question: "When taking the cylindrical extension of a fuzzy set, what happens to the number of generic variables?",
+                options: [
+                    "It remains the same",
+                    "It decreases",
+                    "It increases by two",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which of the following properties holds true for fuzzy relations but not for crisp relations?",
+                options: [
+                    "Demorgan's law of union",
+                    "Associativity for union",
+                    "Absorption of complement for intersection",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which property holds good for both crisp relations and fuzzy relations?",
+                options: [
+                    "Absorption of complement for union",
+                    "Law of contradiction",
+                    "Absorption of complement for intersection",
+                    "None of the above"
+                ],
+                correct: 3
+            },
+            {
+                question: "Which of the following best describes the extension principle?",
+                options: [
+                    "A method for converting fuzzy sets using a known mapping function",
+                    "A principle for defining fuzzy logic operations",
+                    "A method for calculating fuzzy set cardinality",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "In the context of the extension principle, what does f^{-1}(y) represent?",
+                options: [
+                    "The inverse of the membership function",
+                    "The inverse of the mapping function",
+                    "The inverse of the universe of discourse",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "What does the extension principle help achieve in fuzzy set theory?",
+                options: [
+                    "Transformation of membership values from one domain to another",
+                    "Reduction of fuzzy set complexity",
+                    "Elimination of conflicting membership values",
+                    "None of the above"
+                ],
+                correct: 0
+            }
+        ]
+    },
+
+    week8: {
+        title: "Week 8",
+        questions: [
+            {
+                question: "What are the two main composition operations/strategies for fuzzy relations discussed in the lecture?",
+                options: [
+                    "Min-max composition and min-product composition",
+                    "Max-min composition and max-product composition",
+                    "Addition composition and multiplication composition",
+                    "Intersection composition and union composition",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is the dimension of the resulting fuzzy relation matrix when performing max-min composition between a 3x4 matrix and a 4x2 matrix?",
+                options: ["3x4", "4x4", "3x2", "4x2", "None of the above"],
+                correct: 2
+            },
+            {
+                question: "What is the key difference between max-min composition and max-product composition of fuzzy relations?",
+                options: [
+                    "The order of matrices",
+                    "The operation used to combine membership values",
+                    "The universe of discourse",
+                    "The dimension of the resulting fuzzy relation matrix",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "What does the weak distributivity over intersection property state?",
+                options: [
+                    "The composition of fuzzy relations is a subset of the intersection of compositions of fuzzy relations.",
+                    "The composition of fuzzy relations is equal to the intersection of compositions of fuzzy relations.",
+                    "The intersection of compositions of fuzzy relations is equal to the composition of fuzzy relations.",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which property ensures that if one fuzzy relation is a subset of another, their compositions follow a similar relationship?",
+                options: [
+                    "Associativity",
+                    "Distributivity over union",
+                    "Monotonicity",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "What will be the outcome if fuzzy relations R, S1, and S2 are composed according to the distributivity over union property?",
+                options: [
+                    "The composition of R and the union of S1 and S2 is equal to the union of compositions of R and S1 and R and S2.",
+                    "The composition of R and the union of S1 and S2 is equal to the composition of R and S1.",
+                    "The composition of R and the union of S1 and S2 is equal to the composition of R and S2.",
+                    "The composition of R and the union of S1 and S2 is equal to the composition of R and S1 and S2.",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which of the following properties must be satisfied for a fuzzy relation set to be considered a fuzzy tolerance relation?",
+                options: [
+                    "Transitivity and asymmetry",
+                    "Symmetry and reflexivity",
+                    "Symmetry and transitivity",
+                    "Reflexivity and asymmetry"
+                ],
+                correct: 1
+            },
+            {
+                question: "What does the reflexivity property of a fuzzy tolerance relation entail?",
+                options: [
+                    "All elements in the fuzzy relation matrix are equal to 1",
+                    "All diagonal elements in the fuzzy relation matrix are equal to 1",
+                    "All off-diagonal elements in the fuzzy relation matrix are equal to 1",
+                    "All elements in the fuzzy relation matrix are non-zero"
+                ],
+                correct: 1
+            },
+            {
+                question: "In a fuzzy tolerance relation, what does the symmetry property indicate?",
+                options: [
+                    "All elements in the fuzzy relation matrix are symmetrically arranged",
+                    "Membership values are equal if the row and column indices are interchanged",
+                    "The fuzzy relation matrix is symmetric along the main diagonal",
+                    "Membership values are equal in all rows and columns"
+                ],
+                correct: 1
+            },
+            {
+                question: "What happens if a fuzzy relation set fails to satisfy the reflexivity property?",
+                options: [
+                    "It automatically satisfies the symmetry property",
+                    "It is considered a fuzzy equivalence relation",
+                    "It cannot be considered a fuzzy tolerance relation",
+                    "It must satisfy the transitivity property to compensate"
+                ],
+                correct: 2
+            }
+        ]
+    },
+
+    week9: {
+        title: "Week 9",
+        questions: [
+            {
+                question: "What does the term set represent in a linguistic variable?",
+                options: [
+                    "The universe of discourse",
+                    "The measure of the linguistic variable",
+                    "The collection of linguistic values for the variable",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "Which of the following is true for syntactic rule (G)?",
+                options: [
+                    "It refers to the term set T(x) which can be characterized by a fuzzy set of a universe of discourse X.",
+                    "It refers to the way the linguistic values in the term set T(x) are generated.",
+                    "It specifies the procedure for computing the meaning of any linguistic value through specified membership functions.",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "Which of the following is true for semantic rule (M)?",
+                options: [
+                    "It refers to the term set T(x) which can be characterized by a fuzzy set of a universe of discourse X.",
+                    "It refers to the way the linguistic values in the term set T(x) are generated.",
+                    "It specifies the procedure for computing the meaning of any linguistic value through specified membership functions.",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "If a linguistic variable 'Lazy' with the universe of discourse X = {1,2,3,4} is defined as Lazy = 1.0/1 + 0.5/2 + 0.3/3 + 0.2/4, what will be the value of 'Very Lazy'?",
+                options: [
+                    "1/1 + 0.250/2 + 0.090/3 + 0.040/4",
+                    "1/1 + 0.125/2 + 0.027/3 + 0.064/4",
+                    "1/1 + 0.707/2 + 0.547/3 + 0.447/4",
+                    "1/1 + 0.500/2 + 0.700/3 + 0.800/4",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "If a linguistic variable 'Lazy' with the universe of discourse X = {1,2,3,4} is defined as Lazy = 1.0/1 + 0.5/2 + 0.3/3 + 0.2/4, what will be the value of 'More Or Less Lazy'?",
+                options: [
+                    "1/1 + 0.250/2 + 0.090/3 + 0.040/4",
+                    "1/1 + 0.125/2 + 0.027/3 + 0.064/4",
+                    "1/1 + 0.707/2 + 0.547/3 + 0.447/4",
+                    "1/1 + 0.500/2 + 0.700/3 + 0.800/4",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "If a linguistic variable 'Lazy' with the universe of discourse X = {1,2,3,4} is defined as Lazy = 1.0/1 + 0.5/2 + 0.3/3 + 0.2/4, what will be the value of 'Very Very Lazy'?",
+                options: [
+                    "1/1 + 0.250/2 + 0.090/3 + 0.040/4",
+                    "1/1 + 0.125/2 + 0.027/3 + 0.064/4",
+                    "1/1 + 0.707/2 + 0.547/3 + 0.447/4",
+                    "1/1 + 0.500/2 + 0.700/3 + 0.800/4",
+                    "None of the above"
+                ],
+                correct: 4
+            },
+            {
+                question: "If a linguistic variable 'Lazy' with the universe of discourse X = {1,2,3,4} is defined as Lazy = 1.0/1 + 0.5/2 + 0.3/3 + 0.2/4, what will be the value of 'NOT(Lazy)'?",
+                options: [
+                    "1/1 + 0.250/2 + 0.090/3 + 0.040/4",
+                    "1/1 + 0.125/2 + 0.027/3 + 0.064/4",
+                    "1/1 + 0.707/2 + 0.547/3 + 0.447/4",
+                    "1/1 + 0.500/2 + 0.700/3 + 0.800/4",
+                    "None of the above"
+                ],
+                correct: 4
+            },
+            {
+                question: "If fuzzy sets A and B with the universe of discourse X are defined as A = 1.0/1 + 0.5/2 + 0.3/3 + 0.2/4, B = 0.5/1 + 1.0/2 + 0.7/3 + 0.1/4, find A AND B?",
+                options: [
+                    "0.0/1 + 0.5/2 + 0.7/3 + 0.8/4",
+                    "0.5/1 + 0.5/2 + 0.3/3 + 0.1/4",
+                    "1.0/1 + 1.0/2 + 0.7/3 + 0.2/4",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "If fuzzy sets A and B with the universe of discourse X are defined as A = 1.0/1 + 0.5/2 + 0.3/3 + 0.2/4, B = 0.5/1 + 1.0/2 + 0.7/3 + 0.1/4, find A OR B?",
+                options: [
+                    "0.0/1 + 0.5/2 + 0.7/3 + 0.8/4",
+                    "0.5/1 + 0.5/2 + 0.3/3 + 0.1/4",
+                    "1.0/1 + 1.0/2 + 0.7/3 + 0.2/4",
+                    "None of the above"
+                ],
+                correct: 2
+            },
+            {
+                question: "How can the composite linguistic term 'Slightly Light' be obtained from the fuzzy set for 'Light'?",
+                options: [
+                    "By concentrating the fuzzy set",
+                    "By taking the intersection of fuzzy sets",
+                    "By dilating the fuzzy set",
+                    "By applying the complement operation to the fuzzy set",
+                    "None of the above"
+                ],
+                correct: 2
+            }
+        ]
+    },
+
+    week10: {
+        title: "Week 10",
+        questions: [
+            {
+                question: "What effect does the contrast intensifier have on membership values based on the given options?",
+                options: [
+                    "Increases values above 0.5 and diminishes values below 0.5.",
+                    "Diminishes values above 0.5 and increases values below 0.5.",
+                    "Increases values both above and below 0.5.",
+                    "Diminishes values both above and below 0.5.",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "Let fuzzy set A is defined with the universe of discourse X = {1,2,3,4} given as A = 0.1/1 + 0.3/2 + 1.0/3 + 0.5/4. What will be the membership function value at generic variable value 2 for the fuzzy set obtained by INT(A)?",
+                options: ["1.00", "0.02", "0.18", "0.50"],
+                correct: 2
+            },
+            {
+                question: "For the fuzzy set defined in Q.2, what will be the membership function value at generic variable value 4 for the fuzzy set obtained by INT(A)?",
+                options: ["1.00", "0.02", "0.18", "0.50"],
+                correct: 3
+            },
+            {
+                question: "For the fuzzy set defined in Q.2, what will be the membership function value at generic variable value 1 for the fuzzy set obtained by INT(A)?",
+                options: ["1.00", "0.02", "0.18", "0.50"],
+                correct: 1
+            },
+            {
+                question: "For the fuzzy set defined in Q.2, what will be the membership function value at generic variable value 3 for the fuzzy set obtained by INT(A)?",
+                options: ["1.00", "0.02", "0.18", "0.50"],
+                correct: 0
+            },
+            {
+                question: "For the fuzzy set defined in Q.2, what will be the complement of INT(A)?",
+                options: [
+                    "0.02/1 + 0.18/2 + 1.00/3 + 1.00/4",
+                    "0.98/1 + 0.18/2 + 1.00/3 + 0.50/4",
+                    "0.98/1 + 0.82/2 + 1.00/3 + 0.50/4",
+                    "0.98/1 + 0.82/2 + 0.00/3 + 0.50/4"
+                ],
+                correct: 3
+            },
+            {
+                question: "For a fuzzy IF-THEN rule defined using 'IF x is A, THEN y is B', which of the following statements are true?",
+                options: [
+                    "'x is A' is called as consequence and 'y is B' is called as antecedent.",
+                    "'x is A' is called as antecedent and 'y is B' is called as consequent.",
+                    "'x is A' is called as conclusion and 'y is B' is called as premise.",
+                    "'x is A' is called as conclusion and 'y is B' is called as consequent."
+                ],
+                correct: 1
+            },
+            {
+                question: "What is the primary function of a fuzzifier in a fuzzy logic system?",
+                options: [
+                    "Convert fuzzy values to crisp inputs",
+                    "Convert crisp inputs to fuzzy values",
+                    "Evaluate membership functions",
+                    "Implement logical operations in fuzzy logic"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is the primary purpose of a defuzzifier in a fuzzy logic system?",
+                options: [
+                    "Convert fuzzy values to crisp outputs",
+                    "Convert crisp inputs to fuzzy values",
+                    "Determine membership functions",
+                    "Perform fuzzy inference"
+                ],
+                correct: 0
+            },
+            {
+                question: "What is the main principle behind fuzzy reasoning in fuzzy logic systems?",
+                options: [
+                    "Utilizing precise mathematical computations for decision-making",
+                    "Handling imprecise or uncertain data using linguistic variables",
+                    "Applying Boolean logic operations for inference",
+                    "Implementing crisp input-output mappings"
+                ],
+                correct: 1
+            }
+        ]
+    },
+
+    week11: {
+        title: "Week 11",
+        questions: [
+            {
+                question: "Who is credited with developing the Mamdani fuzzy model?",
+                options: [
+                    "Lotfi A. Zadeh",
+                    "E. H. Mamdani",
+                    "John McCarthy",
+                    "Warren McCulloch",
+                    "Walter Pitts"
+                ],
+                correct: 1
+            },
+            {
+                question: "Which components constitute the fundamental elements of a Mamdani fuzzy model?",
+                options: [
+                    "Evaluating rules",
+                    "Fuzzifying input variables",
+                    "Defuzzifying",
+                    "Aggregating outputs of fuzzy rules",
+                    "All of the above"
+                ],
+                correct: 4
+            },
+            {
+                question: "What was the initial application of the Mamdani fuzzy model?",
+                options: [
+                    "Controlling a steam engine and boiler combination",
+                    "Regulating a vehicle engine",
+                    "Creating a golf diagnostic system",
+                    "Implementing condition-based monitoring for machines"
+                ],
+                correct: 0
+            },
+            {
+                question: "In the context of a Mamdani fuzzy model described as: Rule: IF x is A THEN y is B, Fact (Input): x is A', Conclusion: y is B'. Which type of Mamdani fuzzy model is this?",
+                options: [
+                    "Multiple rules with single antecedent",
+                    "Single rule with multiple antecedents",
+                    "Single rule with single antecedent",
+                    "Multiple rules with multiple antecedents"
+                ],
+                correct: 2
+            },
+            {
+                question: "Let us consider a Mamdani fuzzy model with single rule and multiple antecedents. If the points of intersection for fuzzy inputs A' and B' with A and B, respectively are represented by weights w1 = 0.70 and w2 = 0.50, what will be the value of weight obtained using max-min composition for the truncation of C to get the output C'?",
+                options: ["0.70", "0.50", "0.35", "None of the above"],
+                correct: 1
+            },
+            {
+                question: "For the Mamdani fuzzy model and weights value defined in Q.5, what will be the value of weight obtained using max-product composition for the truncation of C to get the output C'?",
+                options: ["0.70", "0.50", "0.35", "None of the above"],
+                correct: 2
+            },
+            {
+                question: "If the aggregated output of a Mamdani fuzzy model is a trapezoidal shaped output defined using parameters [2,5,7,8] with maximum membership function value 1.0, what will be the defuzzified crisp output value using mean of maximum?",
+                options: ["6", "7", "5", "2", "8"],
+                correct: 0
+            },
+            {
+                question: "For the problem statement given in Q.7, what will be defuzzified crisp output value using smallest of maximum?",
+                options: ["6", "7", "5", "2", "8"],
+                correct: 2
+            },
+            {
+                question: "For the problem statement given in Q.7, what will be defuzzified crisp output value using largest of maximum?",
+                options: ["6", "7", "5", "2", "8"],
+                correct: 1
+            },
+            {
+                question: "Which statements accurately describe the defuzzification strategy using the mean of maximum?",
+                options: [
+                    "The defuzzified value z* is the average of the values of z for which the membership function has its maximum value.",
+                    "The defuzzified value z* is the average of the values of z for which the membership function has its minimum value.",
+                    "The defuzzified value z* is the maximum of the values of z.",
+                    "The defuzzified value z* is the minimum of the values of z."
                 ],
                 correct: 0
             }
