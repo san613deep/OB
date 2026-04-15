@@ -122,7 +122,7 @@ const quizData = {
     },
 
     week2_solutions: {
-        title: "Week 2 Solutions - Fuzzy Logic",
+        title: "Week 2",
         questions: [
             {
                 question: "Which of the following is a disadvantage of using Open Right membership functions?",
