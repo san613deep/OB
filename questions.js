@@ -188,7 +188,7 @@ const quizData = {
                     "Both have the same right region width",
                     "None of the above"
                 ],
-                correct: 1
+                correct: 0
             },
             {
                 question: "In a Gaussian membership function, what does the parameter 'μ' represent?",
