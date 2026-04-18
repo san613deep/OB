@@ -1144,5 +1144,81 @@ const quizData = {
                 correct: 0
             }
         ]
+    },
+
+    week12: {
+        title: "Week 12",
+        questions: [
+            {
+                question: "A TSK fuzzy model with two rules is given. For crisp inputs x = 1 and y = 1, which of the following set of rules will be applicable?",
+                options: [
+                    "Rule 2",
+                    "Rule 1",
+                    "Rule 1 and Rule 2",
+                    "None of the above"
+                ],
+                correct: 3
+            },
+            {
+                question: "For the TSK model defined in Q.1, which of the following set of rules will be applicable for crisp inputs x = 2 and y = 7?",
+                options: [
+                    "Rule 2",
+                    "Rule 1",
+                    "Rule 1 and Rule 2",
+                    "None of the above"
+                ],
+                correct: 0
+            },
+            {
+                question: "For the applicable rules obtained using given crisp inputs in Q.1, what will be the firing strength using max-min composition for the TSK model defined in Q.1?",
+                options: ["0.50", "0.20", "0.25", "None of the above"],
+                correct: 3
+            },
+            {
+                question: "For the applicable rules obtained using given crisp inputs in Q.2, what will be the firing strength using max-min composition for the TSK model defined in Q.1?",
+                options: ["0.50", "0.20", "0.25", "None of the above"],
+                correct: 0
+            },
+            {
+                question: "For the TSK model defined in Q.1, which of the following set of rules will be applicable for crisp inputs x = 3 and y = 8?",
+                options: [
+                    "Rule 2",
+                    "Rule 1",
+                    "Rule 1 and Rule 2",
+                    "None of the above"
+                ],
+                correct: 3
+            },
+            {
+                question: "For the TSK model defined in Q.1, which of the following set of rules will be applicable for crisp inputs x = 5 and y = 3?",
+                options: [
+                    "Rule 2",
+                    "Rule 1",
+                    "Rule 1 and Rule 2",
+                    "None of the above"
+                ],
+                correct: 1
+            },
+            {
+                question: "For the applicable rule obtained using given crisp inputs in Q.6, what will be the firing strength using max-min composition?",
+                options: ["0.75", "0.00", "0.50", "0.25"],
+                correct: 2
+            },
+            {
+                question: "For the applicable rule obtained using given crisp inputs in Q.6, what will be the firing strength using max-product composition?",
+                options: ["0.75", "0.00", "0.50", "0.25"],
+                correct: 3
+            },
+            {
+                question: "For the applicable rule obtained using given crisp inputs in Q.6, what will be aggregated weighted output using max-min composition?",
+                options: ["7", "3", "2", "4"],
+                correct: 0
+            },
+            {
+                question: "For the applicable rule obtained using given crisp inputs in Q.2, what will be aggregated weighted output using max-min composition?",
+                options: ["7", "3", "12", "8"],
+                correct: 3
+            }
+        ]
     }
 };
