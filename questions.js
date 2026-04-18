@@ -1150,7 +1150,7 @@ const quizData = {
         title: "Week 12",
         questions: [
             {
-                question: "A TSK fuzzy model with two rules is given. For crisp inputs x = 1 and y = 1, which of the following set of rules will be applicable?",
+                question: "A TSK fuzzy model with two rules is given as below.\n\nRULE 1: IF \"x is HIGH\" AND \"y is LOW\" THEN \"z = x + 2\"\n\nRULE 2: IF \"x is LOW\" AND \"y is HIGH\" THEN \"z = y + 1\"\n\nThe input membership functions are defined as follows:\n\nx(LOW) = triangle(x; [1,3,5])\n\nx(HIGH) = triangle(x; [2,4,6])\n\ny(LOW) = triangle(y; [0,2,4])\n\ny(HIGH) = triangle(y; [6,8,10])\n\nFor crisp inputs x = 1 and y = 1, which of the following set of rules will be applicable?",
                 options: [
                     "Rule 2",
                     "Rule 1",
